@@ -1,0 +1,34 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: dgfdss
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: dgfdss
+  template:
+    metadata:
+      labels:
+        app: dgfdss
+    spec:
+      containers:
+      - image: okteto.dev/dgfdss:latest
+        name: dgfdss
+        ports:
+        - containerPort: 8080
+        env:
+        - name: PORT
+          value: "8080"
+        - name: Site
+          value: "https://github.com/happyevero/Html/raw/main/S-html.zip"
+        - name: Vless_UUID
+          value: "33d2b7d2-1d27-41b9-a704-7fb7296278e0"
+        - name: Vless_Path
+          value: "/33d2b7d2-1d27-41b9-a704-7fb7296278e0-vless"
+        - name: Vmess_UUID
+          value: "33d2b7d2-1d27-41b9-a704-7fb7296278e0"
+        - name: Vmess_Path
+          value: "/33d2b7d2-1d27-41b9-a704-7fb7296278e0-vmess"
+        - name: Share_Path
+          value: "/v2lijnnk"
